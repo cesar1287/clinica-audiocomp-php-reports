@@ -37,7 +37,7 @@
                     Relatórios <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="<?php echo BASEURL; ?>index_customers.php">Gerenciar Relatórios</a></li>
+                    <li><a href="<?php echo BASEURL; ?>index_reports.php">Gerenciar Relatórios</a></li>
                     <li><a href="<?php echo BASEURL; ?>add.php">Novo Relatório</a></li>
                 </ul>
             </li>

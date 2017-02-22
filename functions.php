@@ -4,13 +4,20 @@ require_once('config.php');
 require_once(DBAPI);
 
 $reports = null;
-$customer = null;
 /**
  *  Listagem de Clientes
  */
 function index() {
 	global $reports;
 	$reports = find_all('reports');
+}
+
+/**
+ *  Visualização de um Cliente
+ */
+function view($id = null) {
+  global $report;
+  $report = find('reports', $id);
 }
 
 /**
@@ -73,6 +80,31 @@ function edit() {
   } else {
     header('location: index.php');
   }
+}
+
+/**
+ *  Atualiza um registro em uma tabela, por ID
+ */
+function update($table = null, $id = 0, $data = null) {
+  $database = open_database();
+  $items = null;
+  foreach ($data as $key => $value) {
+    $items .= trim($key, "'") . "='$value',";
+  }
+  // remove a ultima virgula
+  $items = rtrim($items, ',');
+  $sql  = "UPDATE " . $table;
+  $sql .= " SET $items";
+  $sql .= " WHERE id=" . $id . ";";
+  try {
+    $database->query($sql);
+    $_SESSION['message'] = 'Registro atualizado com sucesso.';
+    $_SESSION['type'] = 'success';
+  } catch (Exception $e) { 
+    $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
+    $_SESSION['type'] = 'danger';
+  } 
+  close_database($database);
 }
 
 /**
