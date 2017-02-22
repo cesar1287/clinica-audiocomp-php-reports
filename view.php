@@ -52,7 +52,7 @@
 <div id="actions" class="row">
 	<div class="col-md-12">
 	  <a href="edit.php?id=<?php echo $report['id']; ?>" class="btn btn-primary">Editar</a>
-	  <a href="index.php" class="btn btn-default">Voltar</a>
+	  <a href="index_reports.php" class="btn btn-default">Voltar</a>
 	</div>
 </div>
 

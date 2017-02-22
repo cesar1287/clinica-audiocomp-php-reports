@@ -72,13 +72,13 @@ function edit() {
     if (isset($_POST['report'])) {
       $report = $_POST['report'];
       update('reports', $id, $report);
-      header('location: index.php');
+      header('location: index_reports.php');
     } else {
       global $report;
       $report = find('reports', $id);
     } 
   } else {
-    header('location: index.php');
+    header('location: index_reports.php');
   }
 }
 
@@ -113,5 +113,5 @@ function update($table = null, $id = 0, $data = null) {
 function delete($id = null) {
   global $report;
   $report = remove('reports', $id);
-  header('location: index.php');
+  header('location: index_reports.php');
 }

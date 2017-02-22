@@ -50,7 +50,7 @@
 		<td class="actions text-right">
 			<a href="view.php?id=<?php echo $report['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
 			<a href="edit.php?id=<?php echo $report['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $report['id']; ?>">
+			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-report="<?php echo $report['id']; ?>">
 				<i class="fa fa-trash"></i> Excluir
 			</a>
 		</td>
