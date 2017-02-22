@@ -4,6 +4,21 @@
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
 
+<?php 
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
+?>
+
+<?php if (!empty($_SESSION['message'])) : ?>
+	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<?php echo $_SESSION['message']; ?>
+	</div>
+	<?php unset($_SESSION["message"]); ?>
+	<?php unset($_SESSION["type"]); ?>
+<?php endif; ?>
+
 <h1>Dashboard</h1>
 <hr />
 
@@ -27,7 +42,7 @@
 		<a href="index_reports.php" class="btn btn-default">
 			<div class="row">
 				<div class="col-xs-12 text-center">
-					<i class="fa fa-user fa-5x"></i>
+					<i class="fa fa-file fa-5x"></i>
 				</div>
 				<div class="col-xs-12 text-center">
 					<p>Relatórios</p>
